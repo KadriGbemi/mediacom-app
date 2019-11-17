@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import LoginPage from './pages/public/Login';
+
 import './index.scss';
-// import App from './App';
-import LoginPage from './pages/Login';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<LoginPage />, document.getElementById('root'));

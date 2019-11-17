@@ -4,11 +4,11 @@ import { Button, Form, Input, Typography } from 'antd';
 function LoginForm(props) {
   console.log('Props', props);
   const { getFieldDecorator } = props.form;
-  const { Title, Text  } = Typography;
+  const { Title } = Typography;
   return (
     <div className="login-form">
-      <Title level={4} className="left-grid-text">
-        Sign in
+      <Title level={4} className="login-form-title">
+        Sign in to see top news
       </Title>
       <Form.Item>
         {getFieldDecorator('email', {
@@ -20,7 +20,7 @@ function LoginForm(props) {
           ]
         })(<Input placeholder="Enter your email" />)}
       </Form.Item>
-      <Form.Item extra="Don't have a token? Get here">
+      <Form.Item>
         {getFieldDecorator('token', {
           rules: [
             {
@@ -33,6 +33,11 @@ function LoginForm(props) {
       <Button type="primary" className="button">
         Login
       </Button>
+      <Form.Item>
+      <p>
+        Don't have a token? <a  href="https://newsapi.org/register">Get here</a>
+      </p>
+      </Form.Item>
     </div>
   );
 }
