@@ -1,0 +1,49 @@
+//Override ant design
+.ant-btn-primary:active,
+.ant-btn-primary.active {
+  background-color: #2f54eb;
+  border-color: #2f54eb;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected {
+  color: #ffff;
+  background-color: #2f54eb;
+}
+.ant-card-body {
+  padding: 0px;
+  zoom: 1;
+}
+
+.layout {
+  .login-content {
+    background-color: #ffff;
+    .login-card {
+      width: 80%;
+      margin: auto;
+      display: table;
+      float: none;
+      .left-grid {
+        background-color: #f6e6a3;
+        width: 50%;
+        padding: 50px;
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+        .left-grid-text {
+          line-height: 2;
+        }
+      }
+      .right-grid {
+        padding: 50px;
+        display: table-cell;
+        width: 50%;
+        text-align: center;
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
