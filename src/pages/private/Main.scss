@@ -1,0 +1,32 @@
+.main-page {
+  .main-page-content {
+    width: 90%;
+    margin: auto;
+    .main-page-breadcrumb {
+      padding: 15px;
+    }
+    .main-page-content-col {
+      img {
+        width: 100%;
+      }
+    }
+    .news-list {
+      // padding-top: 25px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .full-news-list {
+        width: 70%;
+        // background-color: black;
+      }
+      .business-news-list {
+        background-color: #2f54eb;
+        width: 25%;
+        img {
+          width: 40%;
+        }
+      }
+    }
+  }
+}

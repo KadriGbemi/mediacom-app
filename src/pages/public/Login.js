@@ -12,7 +12,7 @@ const { Title, Text } = Typography;
 function LoginPage(props) {
   return (
     <Layout className="layout">
-      <NavbarComponent />
+      <NavbarComponent defaultSelected='4'/>
       <Content className="login-content">
         <Card className="login-card">
           <div className="left-grid">

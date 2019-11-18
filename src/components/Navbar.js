@@ -1,7 +1,8 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Input } from 'antd';
 
 const { Header } = Layout;
+const { Search } = Input;
 
 function NavbarComponent(props) {
   return (
@@ -19,11 +20,20 @@ function NavbarComponent(props) {
       <Menu
         theme="light"
         mode="horizontal"
-        defaultSelectedKeys={['4']}
-        style={{ lineHeight: '62px' }}
+        defaultSelectedKeys={[props.defaultSelected]}
+        style={{ lineHeight: '62px', color: 'rgba(0, 0, 0, 0.65)' }}
       >
         <Menu.Item key="1">Main</Menu.Item>
         <Menu.Item key="2">Stories</Menu.Item>
+        {props.type ? (
+          <Menu.Item disabled>
+            <Search
+              placeholder="Enter your search"
+              onSearch={value => console.log(value)}
+              style={{ width: 200 }}
+            />{' '}
+          </Menu.Item>
+        ) : null}
         <Menu.Item key="3">Profile</Menu.Item>
         <Menu.Item key="4">Login</Menu.Item>
       </Menu>
@@ -31,4 +41,4 @@ function NavbarComponent(props) {
   );
 }
 
-export default NavbarComponent
+export default NavbarComponent;
