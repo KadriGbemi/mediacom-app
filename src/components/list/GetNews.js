@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getStory } from '../../_actions';
 import { List, Icon } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -9,6 +10,7 @@ const IconText = ({ type, text }) => (
     {text}
   </span>
 );
+
 
 function GetNewsList(props) {
   return props.newsList ? (

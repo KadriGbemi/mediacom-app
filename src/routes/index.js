@@ -18,7 +18,7 @@ const Root = ({ store }) => (
         <PrivateRoute path="/main">
           <MainPage />
         </PrivateRoute>
-        <PrivateRoute path="/Story">
+        <PrivateRoute path="/story">
           <StoryPage />
         </PrivateRoute>
         <PrivateRoute path="/profile">

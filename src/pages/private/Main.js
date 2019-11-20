@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Divider, Layout } from 'antd';
 import { Redirect } from 'react-router-dom';
 
+
 import NavbarComponent from '../../components/Navbar';
 import { getTopHeadlines, getEverything } from '../../_actions';
 import './Main.scss';

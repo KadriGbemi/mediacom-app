@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Row, Typography, Col } from 'antd';
+import { useHistory } from 'react-router-dom';
+
 import { getStory } from '../../_actions';
 const { Title, Text } = Typography;
 
@@ -11,6 +13,7 @@ const DemoBox = props => (
 
 const colSpanValues = [4, 12, 6];
 function Content(props) {
+  let history = useHistory();
   const getNewsList = props.newsList
     ? props.newsList
         .flat()
@@ -24,7 +27,14 @@ function Content(props) {
             <DemoBox>
               <img src={eachNewsListItem.urlToImage} alt="news list" />
             </DemoBox>
-            <Title level={3} className="title" onClick={e => {props.getStory(eachNewsListItem)}}>
+            <Title
+              level={3}
+              className="title"
+              onClick={e => {
+                props.getStory(eachNewsListItem);
+                setTimeout(history.push('/story'), 100);
+              }}
+            >
               {eachNewsListItem.title}
             </Title>
             <Text>{eachNewsListItem.description}</Text>
