@@ -1,11 +1,11 @@
 .main-page {
   .main-page-content {
-    width: 90%;
     margin: auto;
-    .main-page-breadcrumb {
-      padding: 15px;
-    }
+    padding: 2%;
     .main-page-content-col {
+      .title {
+        cursor: pointer;
+      }
       img {
         width: 100%;
       }

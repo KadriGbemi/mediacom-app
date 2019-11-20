@@ -1,55 +1,44 @@
-//Override ant design
-.ant-btn-primary:active,
-.ant-btn-primary.active {
-  background-color: #2f54eb;
-  border-color: #2f54eb;
-}
-
-.ant-menu-horizontal > .ant-menu-item-selected {
-  color: white;
-  background-color: #2f54eb;
-}
-.ant-card-body {
-  padding: 0px;
-  zoom: 1;
-}
-
 //Layout page styles
 .layout {
-  .login-content {
-    display: flex;
-    height: 80vh;
-    background-color: #ffff;
-    .login-card {
-      width: 80%;
-      margin: auto;
-      display: table;
-      float: none;
-      .left-grid {
-        background-color: #f6e6a3;
-        width: 50%;
-        padding: 60px;
-        display: table-cell;
+  background-color: white;
+  .layout-container {
+    width: 80%;
+    margin: auto;
+    .error-message {
+      margin: 10px 0px 0px 0px;
+    }
+    .login-content {
+      display: flex;
+      margin-top: 5%;
+      .login-card {
+        display: table;
         float: none;
-        vertical-align: middle;
-        .left-grid-text {
-          line-height: 2;
-        }
-      }
-      .right-grid {
-        padding: 60px;
-        display: table-cell;
-        width: 50%;
-        .login-form {
-          display: flex;
-          flex-direction: column;
-          p {
-            a {
-              text-decoration: underline;
-            }
+        .left-grid {
+          background-color: #f6e6a3;
+          width: 50%;
+          padding: 60px;
+          display: table-cell;
+          float: none;
+          vertical-align: middle;
+          .left-grid-text {
+            line-height: 2;
           }
-          .login-form-title {
-            text-align: center;
+        }
+        .right-grid {
+          padding: 60px;
+          display: table-cell;
+          width: 50%;
+          .login-form {
+            display: flex;
+            flex-direction: column;
+            p {
+              a {
+                text-decoration: underline;
+              }
+            }
+            .login-form-title {
+              text-align: center;
+            }
           }
         }
       }

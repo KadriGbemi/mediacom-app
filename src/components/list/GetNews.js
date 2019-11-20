@@ -1,18 +1,7 @@
 import React from 'react';
-import { List, Avatar, Icon } from 'antd';
-
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'http://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.'
-  });
-}
+import { connect } from 'react-redux';
+import { getStory } from '../../_actions';
+import { List, Icon } from 'antd';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -22,7 +11,7 @@ const IconText = ({ type, text }) => (
 );
 
 function GetNewsList(props) {
-  return (
+  return props.newsList ? (
     <List
       itemLayout="vertical"
       size="large"
@@ -32,16 +21,11 @@ function GetNewsList(props) {
         },
         pageSize: 3
       }}
-      dataSource={listData}
-      footer={
-        <div>
-          <b>ant design</b> footer part
-        </div>
-      }
-      renderItem={item => (
+      dataSource={props.newsList}
+      renderItem={(item, index) => (
         <List.Item
-          key={item.title}
-          noBorder
+          key={index}
+          noborder="true"
           style={{
             borderBottomColor: 'transparent',
             borderBottomWidth: 0
@@ -51,13 +35,7 @@ function GetNewsList(props) {
             <IconText type="like-o" text="156" key="list-vertical-like-o" />,
             <IconText type="message" text="2" key="list-vertical-message" />
           ]}
-          extra={
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
-          }
+          extra={<img width={272} alt="news" src={item.urlToImage} />}
         >
           <List.Item.Meta
             title={<a href={item.href}>{item.title}</a>}
@@ -67,7 +45,7 @@ function GetNewsList(props) {
         </List.Item>
       )}
     />
-  );
+  ) : null;
 }
 
-export default GetNewsList;
+export default connect(null, { getStory })(GetNewsList);

@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import LoginPage from './pages/public/Login';
-import MainPage from './pages/private/Main';
+import store from './_store/index';
+import Root from './routes/index';
 
 import './index.scss';
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<MainPage />, document.getElementById('root'));
+ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

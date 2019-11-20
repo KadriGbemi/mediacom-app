@@ -1,20 +1,24 @@
-import { authTypes, newsTypes } from '../_constants';
+import { authTypes, newsTypes, alertType } from '../_constants';
 
 function rootReducer(state = {}, action) {
   switch (action.type) {
-    case authTypes.LOGIN_AUTHENTICATION:
-      return { ...state, token: action.payload };
+    case authTypes.LOGIN_AUTHENTICATED:
+      return { ...state, token: action.token };
     case authTypes.LOGIN_ERROR:
       return {
         ...state,
         error: 'Seems your name or token is invalid'
       };
     case newsTypes.GET_EVERYTHING:
-      return { ...state, everythingNews: action.stations };
+      return { ...state, headlines: action.payload };
     case newsTypes.GET_TOP_HEADLINES_BY_COUNTRY:
-      return { ...state, headlines: action.stations };
+      return { ...state, headlines: action.payload };
+      case newsTypes.GET_STORY:
+      return { ...state, story: action.story };
       case newsTypes.GET_USER_PROFILE:
-      return { ...state, profile: action.stations };
+      return { ...state, user: action.user };
+      case alertType.ALERT_ACTION:
+        return { ...state, error: undefined};
     case authTypes.LOG_OUT:
       return {};
     default:
