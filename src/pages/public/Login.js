@@ -5,6 +5,7 @@ import { Layout, Card, Typography } from 'antd';
 
 import LoginFormComponent from '../../components/form/Login';
 import NavbarComponent from '../../components/Navbar';
+
 import AlertMessageComponent from '../../components/message/alert';
 
 import './Login.scss';
@@ -13,9 +14,10 @@ const { Content } = Layout;
 const { Title, Text } = Typography;
 
 function LoginPage(props) {
-  return props.token ? (
+  return props.token && props.headlines ? (
     <Redirect to="/main" />
-  ) : ( <Layout className="layout">
+  ) : (
+    <Layout className="layout">
       <NavbarComponent defaultSelected="4" action="Log in" />
       <div className="layout-container">
         <AlertMessageComponent />
@@ -42,7 +44,8 @@ function LoginPage(props) {
 
 function mapStateToProps(state) {
   return {
-    token: state.token
+    token: state.token,
+    headlines: state.headlines
   };
 }
 

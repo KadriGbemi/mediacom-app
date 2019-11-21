@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Input, Typography } from 'antd';
 import { connect } from 'react-redux';
-import { login } from '../../_actions/index';
+import { login, getAlertError, getTopHeadlines } from '../../_actions/index';
 
 function LoginForm(props) {
   const { getFieldDecorator } = props.form;
@@ -10,10 +10,10 @@ function LoginForm(props) {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         props.login(values, 'us');
-        if (props.token) {
-          props.history.push(`/main`);
+        props.getTopHeadlines('us', values.token);
+        if (!props.token && !props.headlines) {
+          props.getAlertError('Looks like you have an invalid token or email');
         }
       }
     });
@@ -65,8 +65,11 @@ const LoginFormComponent = Form.create({ name: 'dynamic_rule' })(LoginForm);
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    token: state.token,
+    headlines: state.headlines
   };
 }
 
-export default connect(mapStateToProps, { login })(LoginFormComponent);
+export default connect(mapStateToProps, { login, getAlertError, getTopHeadlines })(
+  LoginFormComponent
+);

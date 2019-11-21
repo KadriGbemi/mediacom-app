@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getStory } from '../../_actions';
 import { List, Icon } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -10,7 +10,6 @@ const IconText = ({ type, text }) => (
     {text}
   </span>
 );
-
 
 function GetNewsList(props) {
   return props.newsList ? (
@@ -40,7 +39,16 @@ function GetNewsList(props) {
           extra={<img width={272} alt="news" src={item.urlToImage} />}
         >
           <List.Item.Meta
-            title={<a href={item.href}>{item.title}</a>}
+            title={
+              <Link
+                to="/story"
+                onClick={e => {
+                  props.getStory(item);
+                }}
+              >
+                Home{item.title}
+              </Link>
+            }
             description={item.description}
           />
           {item.content}

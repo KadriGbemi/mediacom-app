@@ -3,19 +3,15 @@ import { connect } from 'react-redux';
 import { Divider, Layout } from 'antd';
 import { Redirect } from 'react-router-dom';
 
-
 import NavbarComponent from '../../components/Navbar';
 import { getTopHeadlines, getEverything } from '../../_actions';
-import './Main.scss';
+import './styles/main.scss';
 import GetNewsList from '../../components/list/GetNews';
 import ContentList from '../../components/list/Content';
 
 class MainPage extends Component {
   constructor(props) {
     super(props);
-  }
-  componentDidMount() {
-    this.props.getTopHeadlines('us', this.props.token);
   }
   handleImageNotDisplayed = headlines => {
     if (headlines) {
@@ -28,22 +24,26 @@ class MainPage extends Component {
     }
   };
   render() {
-    return this.props.token ? (
+    return (this.props.token && this.props.headlines)? (
       <div className="main-page">
-        <NavbarComponent
+         <NavbarComponent
           defaultSelected="1"
           type="withSearchInput"
           action="Log out"
         />
-        <div className="main-page-content">
+       <div className="main-page-content">
           <ContentList
-            newsList={this.props.headlines? this.handleImageNotDisplayed(this.props.headlines): []}
+            newsList={this.handleImageNotDisplayed(this.props.headlines)
+            }
           />
-          <Divider orientation="left">More About Top Headlines</Divider>
+          {this.props.headlines ? (
+            <Divider orientation="right">More Headlines</Divider>
+          ) : null}
           <div className="news-list">
             <div className="full-news-list">
               <GetNewsList
-                newsList={this.props.headlines? this.handleImageNotDisplayed(this.props.headlines): []}
+                newsList={this.handleImageNotDisplayed(this.props.headlines)
+                }
               />
             </div>
           </div>
@@ -56,7 +56,7 @@ class MainPage extends Component {
           }}
         >
           MediaCom App ©2019 Created by Kadri Oluwagbemi
-        </Layout.Footer>
+        </Layout.Footer> */}
       </div>
     ) : (
       <Redirect to="/" />

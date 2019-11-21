@@ -13,12 +13,14 @@ function rootReducer(state = {}, action) {
       return { ...state, headlines: action.payload };
     case newsTypes.GET_TOP_HEADLINES_BY_COUNTRY:
       return { ...state, headlines: action.payload };
-      case newsTypes.GET_STORY:
+    case newsTypes.GET_STORY:
       return { ...state, story: action.story };
-      case newsTypes.GET_USER_PROFILE:
+    case newsTypes.GET_PROFILE:
       return { ...state, user: action.user };
-      case alertType.ALERT_ACTION:
-        return { ...state, error: undefined};
+    case alertType.ALERT_ERROR_SHOW:
+      return { ...state, error: action.error };
+    case alertType.ALERT_ERROR_REMOVE:
+      return { ...state, error: undefined };
     case authTypes.LOG_OUT:
       return {};
     default:

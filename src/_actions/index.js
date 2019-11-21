@@ -3,14 +3,15 @@ import { apiRequestService } from '../_services/api/requests';
 
 export function login(loginDetails, countryAbbreviation) {
   return function(dispatch) {
+    dispatch(request('login requested'));
     try {
-      getTopHeadlines(countryAbbreviation, loginDetails.token);
-      dispatch(request('login requested'));
       dispatch({
         type: authTypes.LOGIN_AUTHENTICATED,
         token: loginDetails.token
       });
+      dispatch(getUserProfile(loginDetails));
     } catch (err) {
+      console.log('Error login', err);
       dispatch(failure(err));
     }
   };
@@ -21,25 +22,26 @@ export function login(loginDetails, countryAbbreviation) {
     return { type: authTypes.LOGIN_ERROR, error };
   }
 }
-export function success(loginDetails) {
-  return { type: authTypes.LOGIN_SUCCESS, loginDetails };
-}
-
 export function logout() {
   console.log('Log out action index');
   apiRequestService.logout();
   return { type: authTypes.LOG_OUT };
 }
 
+export function getAlertError(message) {
+  return { type: alertType.ALERT_ERROR_SHOW, error: message };
+}
 export function removeAlertMessage() {
-  return { type: alertType.ALERT_ACTION };
+  return { type: alertType.ALERT_ERROR_REMOVE };
 }
 export function getUserProfile(loginDetails) {
-  return { type: newsTypes.GET_USER_PROFILE, user: loginDetails };
+  return {
+    type: newsTypes.GET_PROFILE,
+    user: loginDetails
+  };
 }
 
 export function getStory(story) {
-  console.log('get story action', story);
   return { type: newsTypes.GET_STORY, story: story };
 }
 
@@ -48,6 +50,7 @@ export function getTopHeadlines(countryAbbreviation, loginDetailsToken) {
     apiRequestService
       .getTopHeadlines(countryAbbreviation, loginDetailsToken)
       .then(data => {
+        console.log("Top headlines", data);
         dispatch({
           type: newsTypes.GET_TOP_HEADLINES_BY_COUNTRY,
           payload: data

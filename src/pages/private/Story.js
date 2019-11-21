@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import {Layout } from 'antd';
 import NavbarComponent from '../../components/Navbar';
-import './Story.scss';
+import './styles/story.scss';
 
 function StoryPage(props) {
   return props.token && props.story ? (
