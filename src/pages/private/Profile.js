@@ -1,32 +1,53 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col, Typography } from 'antd';
 import NavbarComponent from '../../components/Navbar';
 import DummyProfileImage from '../../assets/profile_pic.png';
+import ProfileFormComponent from '../../components/form/Profile.js';
 import './styles/profile.scss';
+
+const { Title, Text } = Typography;
 
 function Profile(props) {
   return props.token ? (
-    <div className="profile-page">
+    <div>
       <NavbarComponent action="Log out" />
-      <Row gutter={16}>
-        <Col className="gutter-row" span={4}>
-          <div className="gutter-box">
-            <Card className="login-card">
-              <img src={DummyProfileImage} alt='profile pic' />
-              <h1>Hello "Profile page Content"</h1>
-            </Card>
-          </div>
-        </Col>
-        <Col className="gutter-row" span={12}>
-          <div className="gutter-box">
-            <Card className="login-card">
-              <h1>Hello "Profile form"</h1>
-            </Card>
-          </div>
-        </Col>
-      </Row>
+      <div className="profile-page">
+        <Row gutter={18}>
+          <Col className="gutter-row" span={6}>
+            <div className="gutter-box">
+              <Card className="profile-card">
+                <img src={DummyProfileImage} alt="profile pic" />
+                <Title level={3}>User profile</Title>
+                <div>
+                  {props.user.name ? (
+                    <div>
+                      <strong>Name:</strong> <br />
+                      <Text>{props.user.name}</Text>
+                      <br />
+                    </div>
+                  ) : null}
+                  <strong>Email:</strong> <br />
+                  <Text>{props.user.email}</Text>
+                  <br />
+                  <strong>Token:</strong>
+                  <br />
+                  <Text type="secondary">{props.user.token}</Text>
+                  <br />
+                </div>
+              </Card>
+            </div>
+          </Col>
+          <Col className="gutter-row" span={18}>
+            <div className="gutter-box">
+              <Card className="profile-card">
+                <ProfileFormComponent />
+              </Card>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </div>
   ) : (
     <Redirect to="/" />
@@ -35,7 +56,8 @@ function Profile(props) {
 
 function mapStateToProps(state) {
   return {
-    token: state.token
+    token: state.token,
+    user: state.user
   };
 }
 

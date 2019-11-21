@@ -17,6 +17,8 @@ function rootReducer(state = {}, action) {
       return { ...state, story: action.story };
     case newsTypes.GET_PROFILE:
       return { ...state, user: action.user };
+    case newsTypes.UPDATE_PROFILE:
+      return { ...state, user: action.payload };
     case alertType.ALERT_ERROR_SHOW:
       return { ...state, error: action.error };
     case alertType.ALERT_ERROR_REMOVE:

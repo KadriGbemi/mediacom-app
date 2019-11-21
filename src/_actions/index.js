@@ -23,7 +23,6 @@ export function login(loginDetails, countryAbbreviation) {
   }
 }
 export function logout() {
-  console.log('Log out action index');
   apiRequestService.logout();
   return { type: authTypes.LOG_OUT };
 }
@@ -44,7 +43,9 @@ export function getUserProfile(loginDetails) {
 export function getStory(story) {
   return { type: newsTypes.GET_STORY, story: story };
 }
-
+export function updateUserProfile(profile){
+  return { type: newsTypes.UPDATE_PROFILE, payload: profile };
+}
 export function getTopHeadlines(countryAbbreviation, loginDetailsToken) {
   return function(dispatch) {
     apiRequestService

@@ -56,7 +56,7 @@ class MainPage extends Component {
           }}
         >
           MediaCom App ©2019 Created by Kadri Oluwagbemi
-        </Layout.Footer> */}
+        </Layout.Footer>
       </div>
     ) : (
       <Redirect to="/" />
