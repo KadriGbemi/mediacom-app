@@ -31,11 +31,11 @@ function GetNewsList(props) {
             borderBottomColor: 'transparent',
             borderBottomWidth: 0
           }}
-          actions={[
+          /* actions={[
             <IconText type="star-o" text="156" key="list-vertical-star-o" />,
             <IconText type="like-o" text="156" key="list-vertical-like-o" />,
             <IconText type="message" text="2" key="list-vertical-message" />
-          ]}
+          ]} */
           extra={<img width={272} alt="news" src={item.urlToImage} />}
         >
           <List.Item.Meta
