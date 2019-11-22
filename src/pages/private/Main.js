@@ -19,6 +19,7 @@ class MainPage extends Component {
         if (item.urlToImage !== null) {
           return item;
         }
+        return item;
       });
       return filter;
     }

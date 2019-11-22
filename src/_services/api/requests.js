@@ -11,7 +11,6 @@ function getTopHeadlines(countryAbbreviation, token) {
 }
 
 function getEverything(request, token) {
-  console.log('Token in get Everything', token);
   return axios
     .get(`/everything?q=${request}&apiKey=${token}`)
     .then(response => {

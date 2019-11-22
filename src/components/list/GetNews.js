@@ -1,15 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getStory } from '../../_actions';
-import { List, Icon } from 'antd';
+import { List} from 'antd';
 import { Link } from 'react-router-dom';
-
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
-);
 
 function GetNewsList(props) {
   return props.newsList ? (
@@ -31,11 +24,6 @@ function GetNewsList(props) {
             borderBottomColor: 'transparent',
             borderBottomWidth: 0
           }}
-          /* actions={[
-            <IconText type="star-o" text="156" key="list-vertical-star-o" />,
-            <IconText type="like-o" text="156" key="list-vertical-like-o" />,
-            <IconText type="message" text="2" key="list-vertical-message" />
-          ]} */
           extra={<img width={272} alt="news" src={item.urlToImage} />}
         >
           <List.Item.Meta

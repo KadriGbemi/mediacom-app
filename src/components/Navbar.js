@@ -64,4 +64,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { login, logout, getEverything })(NavbarComponent);
+export default connect(mapStateToProps, { login, logout, getEverything })(
+  NavbarComponent
+);

@@ -18,7 +18,7 @@
       margin-bottom: 20px;
       .full-news-list {
         width: 70%;
-        // background-color: black;
+        margin: auto;
       }
       .business-news-list {
         background-color: #2f54eb;
@@ -28,5 +28,14 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .main-page {
+    width: 100vh;
+  }
+  .main-page-content-col {
+    margin: calc(100vh -4em) ;
   }
 }

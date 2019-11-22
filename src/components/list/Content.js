@@ -20,7 +20,10 @@ function Content(props) {
         .splice(1, 3)
         .map((eachNewsListItem, index) => (
           <Col
-            span={index < 3 ? colSpanValues[index] : 2 + index}
+            sm={{ span: 24 }}
+            xs={{ span: 24 }}
+            md={{ span: index < 3 ? colSpanValues[index] : 2 + index }}
+            lg={{ span: index < 3 ? colSpanValues[index] : 2 + index }}
             className="main-page-content-col"
             key={index}
           >
@@ -44,7 +47,12 @@ function Content(props) {
 
   return props.newsList ? (
     <div>
-      <Row type="flex" justify="space-between" align="top">
+      <Row
+        type="flex"
+        justify="space-between"
+        align="top"
+        gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 18]}
+      >
         {getNewsList}
       </Row>
     </div>

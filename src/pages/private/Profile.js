@@ -14,8 +14,14 @@ function Profile(props) {
     <div>
       <NavbarComponent action="Log out" />
       <div className="profile-page">
-        <Row gutter={18}>
-          <Col className="gutter-row" span={6}>
+        <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 18]}>
+          <Col
+            className="gutter-row"
+            sm={{ span: 24 }}
+            xs={{ span: 24 }}
+            md={{ span: 7 }}
+            lg={{ span: 7 }}
+          >
             <div className="gutter-box">
               <Card className="profile-card">
                 <img src={DummyProfileImage} alt="profile pic" />
@@ -39,7 +45,13 @@ function Profile(props) {
               </Card>
             </div>
           </Col>
-          <Col className="gutter-row" span={18}>
+          <Col
+            className="gutter-row"
+            sm={{ span: 24 }}
+            xs={{ span: 24 }}
+            md={{ span: 17 }}
+            lg={{ span: 17 }}
+          >
             <div className="gutter-box">
               <Card className="profile-card">
                 <ProfileFormComponent />

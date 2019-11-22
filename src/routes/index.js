@@ -10,7 +10,7 @@ import PrivateRoute from './private';
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <Router>
+    <Router basename={"https://kadrigbemi.github.io/mediacom-app"}>
       <Switch>
         <Route exact path="/">
           <LoginPage />
