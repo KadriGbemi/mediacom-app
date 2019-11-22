@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mediacom-app/static/css/main.7d2df2ff.chunk.css",
-    "main.js": "/mediacom-app/static/js/main.a7a47571.chunk.js",
-    "main.js.map": "/mediacom-app/static/js/main.a7a47571.chunk.js.map",
+    "main.js": "/mediacom-app/static/js/main.2621f2e1.chunk.js",
+    "main.js.map": "/mediacom-app/static/js/main.2621f2e1.chunk.js.map",
     "runtime-main.js": "/mediacom-app/static/js/runtime-main.823ba2b2.js",
     "runtime-main.js.map": "/mediacom-app/static/js/runtime-main.823ba2b2.js.map",
     "static/css/2.46b47576.chunk.css": "/mediacom-app/static/css/2.46b47576.chunk.css",
-    "static/js/2.7780fffa.chunk.js": "/mediacom-app/static/js/2.7780fffa.chunk.js",
-    "static/js/2.7780fffa.chunk.js.map": "/mediacom-app/static/js/2.7780fffa.chunk.js.map",
+    "static/js/2.bb0700a1.chunk.js": "/mediacom-app/static/js/2.bb0700a1.chunk.js",
+    "static/js/2.bb0700a1.chunk.js.map": "/mediacom-app/static/js/2.bb0700a1.chunk.js.map",
     "index.html": "/mediacom-app/index.html",
-    "precache-manifest.7fe04883f1373d8aeec02dc90b50f584.js": "/mediacom-app/precache-manifest.7fe04883f1373d8aeec02dc90b50f584.js",
+    "precache-manifest.17cbc5ee4e1a29056cb7f87037ae7485.js": "/mediacom-app/precache-manifest.17cbc5ee4e1a29056cb7f87037ae7485.js",
     "service-worker.js": "/mediacom-app/service-worker.js",
     "static/css/2.46b47576.chunk.css.map": "/mediacom-app/static/css/2.46b47576.chunk.css.map",
     "static/css/main.7d2df2ff.chunk.css.map": "/mediacom-app/static/css/main.7d2df2ff.chunk.css.map",
@@ -18,8 +18,8 @@
   "entrypoints": [
     "static/js/runtime-main.823ba2b2.js",
     "static/css/2.46b47576.chunk.css",
-    "static/js/2.7780fffa.chunk.js",
+    "static/js/2.bb0700a1.chunk.js",
     "static/css/main.7d2df2ff.chunk.css",
-    "static/js/main.a7a47571.chunk.js"
+    "static/js/main.2621f2e1.chunk.js"
   ]
 }
