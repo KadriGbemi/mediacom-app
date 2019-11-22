@@ -1,4 +1,3 @@
-
 .layout {
   background-color: white;
   .layout-container {
@@ -39,6 +38,30 @@
             .login-form-title {
               text-align: center;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .layout {
+    .layout-container {
+      width: 80%;
+      margin: auto;
+      .login-content {
+        .login-card {
+          padding: 5%;
+          .left-grid {
+            display: table;
+            width: 100%;
+            display: table;
+          }
+          .right-grid {
+            display: unset;
+            width: 100%;
+
           }
         }
       }
