@@ -5,7 +5,6 @@ import { removeAlertMessage } from '../../_actions/index';
 
 function AlertMessageComponent(props) {
   const onClose = e => {
-    console.log(e, 'I was closed.');
   props.removeAlertMessage();
   };
   return props.error ? (

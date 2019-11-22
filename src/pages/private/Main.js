@@ -19,23 +19,21 @@ class MainPage extends Component {
         if (item.urlToImage !== null) {
           return item;
         }
-        return item;
       });
       return filter;
     }
   };
   render() {
-    return (this.props.token && this.props.headlines)? (
+    return this.props.token && this.props.headlines ? (
       <div className="main-page">
-         <NavbarComponent
+        <NavbarComponent
           defaultSelected="1"
           type="withSearchInput"
           action="Log out"
         />
-       <div className="main-page-content">
+        <div className="main-page-content">
           <ContentList
-            newsList={this.handleImageNotDisplayed(this.props.headlines)
-            }
+            newsList={this.handleImageNotDisplayed(this.props.headlines)}
           />
           {this.props.headlines ? (
             <Divider orientation="right">More Headlines</Divider>
@@ -43,8 +41,7 @@ class MainPage extends Component {
           <div className="news-list">
             <div className="full-news-list">
               <GetNewsList
-                newsList={this.handleImageNotDisplayed(this.props.headlines)
-                }
+                newsList={this.handleImageNotDisplayed(this.props.headlines)}
               />
             </div>
           </div>

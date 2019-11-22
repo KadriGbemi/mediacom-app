@@ -26,7 +26,7 @@ function StoryPage(props) {
         </Layout.Footer>
     </div>
   ) : (
-    <Redirect to="/" />
+    <Redirect to='/'/>
   );
 }
 

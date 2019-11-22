@@ -1,7 +1,7 @@
 import { authTypes, newsTypes, alertType } from '../_constants';
 import { apiRequestService } from '../_services/api/requests';
 
-export function login(loginDetails, countryAbbreviation) {
+export function login(loginDetails) {
   return function(dispatch) {
     dispatch(request('login requested'));
     try {
@@ -51,7 +51,6 @@ export function getTopHeadlines(countryAbbreviation, loginDetailsToken) {
     apiRequestService
       .getTopHeadlines(countryAbbreviation, loginDetailsToken)
       .then(data => {
-        console.log("Top headlines", data);
         dispatch({
           type: newsTypes.GET_TOP_HEADLINES_BY_COUNTRY,
           payload: data

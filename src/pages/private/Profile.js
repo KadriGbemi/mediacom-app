@@ -10,7 +10,7 @@ import './styles/profile.scss';
 const { Title, Text } = Typography;
 
 function Profile(props) {
-  return props.token ? (
+  return props.token && props.headlines? (
     <div>
       <NavbarComponent action="Log out" />
       <div className="profile-page">
@@ -69,7 +69,8 @@ function Profile(props) {
 function mapStateToProps(state) {
   return {
     token: state.token,
-    user: state.user
+    user: state.user,
+    headlines: state.headlines
   };
 }
 

@@ -12,8 +12,10 @@ function LoginForm(props) {
       if (!err) {
         props.login(values, 'us');
         props.getTopHeadlines('us', values.token);
-        if (!props.token && !props.headlines) {
-          props.getAlertError('Looks like you have an invalid token or email');
+        if (props.headlines === undefined || null) {
+          props.getAlertError(
+            'Oops! No response! Looks like you have an invalid token, email or no network connection'
+          );
         }
       }
     });
@@ -70,6 +72,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { login, getAlertError, getTopHeadlines })(
-  LoginFormComponent
-);
+export default connect(mapStateToProps, {
+  login,
+  getAlertError,
+  getTopHeadlines
+})(LoginFormComponent);

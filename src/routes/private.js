@@ -7,7 +7,7 @@ function PrivateRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) =>
-      rest.token ? (
+        rest.token ? (
           children
         ) : (
           <Redirect
