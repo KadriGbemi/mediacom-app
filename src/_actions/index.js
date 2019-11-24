@@ -43,7 +43,7 @@ export function getUserProfile(loginDetails) {
 export function getStory(story) {
   return { type: newsTypes.GET_STORY, story: story };
 }
-export function updateUserProfile(profile){
+export function updateUserProfile(profile) {
   return { type: newsTypes.UPDATE_PROFILE, payload: profile };
 }
 export function getTopHeadlines(countryAbbreviation, loginDetailsToken) {
@@ -55,6 +55,11 @@ export function getTopHeadlines(countryAbbreviation, loginDetailsToken) {
           type: newsTypes.GET_TOP_HEADLINES_BY_COUNTRY,
           payload: data
         });
+      })
+      .catch(err => {
+        dispatch(getAlertError(
+          'Oops! No response! Looks like you have an invalid token, email or no network connection'
+        ));
       });
   };
 }

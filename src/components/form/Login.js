@@ -12,11 +12,6 @@ function LoginForm(props) {
       if (!err) {
         props.login(values, 'us');
         props.getTopHeadlines('us', values.token);
-        if (props.headlines === undefined || null) {
-          props.getAlertError(
-            'Oops! No response! Looks like you have an invalid token, email or no network connection'
-          );
-        }
       }
     });
   };
