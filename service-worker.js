@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mediacom-app/precache-manifest.9026800ad04ddd41263deadbd70ca85b.js"
+  "/mediacom-app/precache-manifest.f78377a2d14328c1f88e2c475bd26ec8.js"
 );
 
 self.addEventListener('message', (event) => {
