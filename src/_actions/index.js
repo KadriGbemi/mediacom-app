@@ -48,20 +48,30 @@ export function updateUserProfile(profile) {
 }
 export function getTopHeadlines(countryAbbreviation, loginDetailsToken) {
   return function(dispatch) {
+    dispatch(requestHeadlines());
     apiRequestService
       .getTopHeadlines(countryAbbreviation, loginDetailsToken)
       .then(data => {
+        dispatch(receivedHeadlines());
         dispatch({
           type: newsTypes.GET_TOP_HEADLINES_BY_COUNTRY,
           payload: data
         });
       })
       .catch(err => {
-        dispatch(getAlertError(
-          'Oops! No response! Looks like you have an invalid token, email or no network connection'
-        ));
+        dispatch(
+          getAlertError(
+            'Oops! No response! Looks like you have an invalid token, email or no network connection'
+          )
+        );
       });
   };
+  function requestHeadlines() {
+    return { type: newsTypes.GET_TOP_HEADLINES_REQUEST };
+  }
+  function receivedHeadlines() {
+    return { type: newsTypes.GET_TOP_HEADLINES_RECEIVED };
+  }
 }
 export function getEverything(request, token) {
   return function(dispatch) {

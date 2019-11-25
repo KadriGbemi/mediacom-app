@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Row, Typography, Col } from 'antd';
+import { Row, Typography, Col, Spin } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import { getStory } from '../../_actions';
@@ -56,9 +56,9 @@ function Content(props) {
         {getNewsList}
       </Row>
     </div>
-  ) : (
+  ) : (props.isLoading ?  <Spin tip="Loading..."> </Spin>: (
     <Redirect to="/" />
-  );
+  ));
 }
 
 export default connect(null, { getStory })(Content);

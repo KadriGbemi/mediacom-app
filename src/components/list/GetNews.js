@@ -9,6 +9,7 @@ function GetNewsList(props) {
     <List
       itemLayout="vertical"
       size="large"
+      loading = {props.isLoading}
       pagination={{
         onChange: page => {
           console.log(page);

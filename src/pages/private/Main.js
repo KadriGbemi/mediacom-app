@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Divider, Layout } from 'antd';
+import { Divider, Layout} from 'antd';
 import { Redirect } from 'react-router-dom';
 
 import NavbarComponent from '../../components/Navbar';
@@ -24,7 +24,7 @@ class MainPage extends Component {
     }
   };
   render() {
-    return this.props.token && this.props.headlines ? (
+        return this.props.token && this.props.headlines ? (
       <div className="main-page">
         <NavbarComponent
           defaultSelected="1"
@@ -34,6 +34,7 @@ class MainPage extends Component {
         <div className="main-page-content">
           <ContentList
             newsList={this.handleImageNotDisplayed(this.props.headlines)}
+            isLoading={this.props.isLoading}
           />
           {this.props.headlines ? (
             <Divider orientation="right">More Headlines</Divider>
@@ -42,6 +43,7 @@ class MainPage extends Component {
             <div className="full-news-list">
               <GetNewsList
                 newsList={this.handleImageNotDisplayed(this.props.headlines)}
+                isLoading={this.props.isLoading}
               />
             </div>
           </div>
@@ -65,7 +67,8 @@ class MainPage extends Component {
 function mapStateToProps(state) {
   return {
     token: state.token,
-    headlines: state.headlines
+    headlines: state.headlines,
+    isLoading: state.isLoading
   };
 }
 

@@ -13,6 +13,10 @@ function rootReducer(state = {}, action) {
       return { ...state, headlines: action.payload };
     case newsTypes.GET_TOP_HEADLINES_BY_COUNTRY:
       return { ...state, headlines: action.payload };
+    case newsTypes.GET_TOP_HEADLINES_REQUEST:
+      return { ...state, isLoading: true };
+    case newsTypes.GET_TOP_HEADLINES_RECEIVED:
+      return { ...state, isLoading: false };
     case newsTypes.GET_STORY:
       return { ...state, story: action.story };
     case newsTypes.GET_PROFILE:
